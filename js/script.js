@@ -68,7 +68,7 @@ const calcResult = (arrayResult) => {
   const numberWinner = arrayResult[1];
 
   if (count === 5) {
-    bodyEl.innerHTML = `<h1 class="display-1 text-black">HAI VINTO!</h1>`;
+    bodyEl.innerHTML = `<h1 class="display-1 text-black bg-primary">HAI VINTO!</h1>`;
   } else if (count !== 5) {
     resultMessage.innerText = `Hai indovinato solo ${count}: numeri:${numberWinner}.`;
   }
@@ -84,7 +84,7 @@ const formEl = document.getElementById("answers-form");
 const textInstructions = document.getElementById("instructions");
 const numbersEl = document.getElementById("numbers-list");
 const resultMessage = document.getElementById("message");
-const bodyEl = document.querySelectorAll("body");
+const bodyEl = document.querySelector("body");
 // --------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------
 
@@ -119,7 +119,7 @@ formEl.addEventListener("submit", function (event) {
   console.log(playerNumbers);
   const arrayResult = compareNumber(playerNumbers, rightNumbers);
   console.log(arrayResult);
-  calcResult();
+  calcResult(arrayResult);
 });
 
 // --------------------------------------------------------------------------------------
