@@ -37,12 +37,17 @@ const stampNumberRandom = (numbers) => {
 const getPlayerNumbers = () => {
   const inputs = document.querySelectorAll("input.form-control");
   console.log(inputs);
+  const numeri = [];
 
-  for (let i = 0; i < numbers.length; i++) {
-    const playerNumbers = document.querySelectorAll("form-control");
-    console.log(playerNumbers);
+  for (let i = 0; i < inputs.length; i++) {
+    const valore = parseInt(inputs[i].value);
+    numeri.push(valore);
   }
+  console.log(numeri);
+  return numeri;
 };
+
+// ------- ACQUISIZIONE NUMERI UTENTE
 
 // --------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------
@@ -82,7 +87,12 @@ const timer = setInterval(() => {
 
 // -------RISPOSTA
 
-const playerNumbers = getPlayerNumbers(numbers);
+formEl.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const playerNumbers = getPlayerNumbers(numbers);
+  console.log(playerNumbers);
+  compareNumber();
+});
 
 // --------------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------------
